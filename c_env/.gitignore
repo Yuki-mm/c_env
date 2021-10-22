@@ -1,0 +1,6 @@
+#実行ファイルは無視する
+/c_code/*
+!*.c
+
+/cpp_code/code/*
+!*.cpp
