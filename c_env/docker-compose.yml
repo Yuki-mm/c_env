@@ -1,0 +1,23 @@
+version: '3'
+services:
+  cpp_container:
+    build:
+      context: .
+
+    # イメージ名を指定
+    container_name: 'cpp_container'
+    image: cpp_container:latest
+
+    # localとcontainer間のファイルを同期させる
+    # ${PWD}:${container}
+    volumes:
+      - ${PWD}/cpp_code:/root/problems:cached
+      # - ../library:/root/library:cached
+      # - ../acc-template-python:/root/.config/atcoder-cli-nodejs/python:cached
+      # - ../.vscode:/root/.vscode:cached
+
+    # # オプション これらのconfigファイルが必要なければコメントアウト
+    #   - ../dotfiles/.zshrc:/root/.zshrc
+    #   - ../dotfiles/.zinit:/root/.zinit
+    #   - ../dotfiles/.zsh_history:/root/.zsh_history
+    #   - ../dotfiles/.aliases:/root/.aliases
