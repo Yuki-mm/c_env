@@ -1,5 +1,5 @@
 # 1. imageをbuildする
-docker-compose build ./ cpp_container
+docker-compose build c_env_cpp_container
 
 # 2. containerをbuildする
-docker run -it cpp_container
+docker run -v /$(pwd):/root/problems -it c_env_cpp_container

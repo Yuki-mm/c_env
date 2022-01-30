@@ -6,7 +6,6 @@ services:
 
     # イメージ名を指定
     container_name: 'cpp_container'
-    image: cpp_container:latest
 
     # localとcontainer間のファイルを同期させる
     # ${PWD}:${container}
