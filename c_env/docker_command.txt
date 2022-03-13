@@ -1,0 +1,63 @@
+# Dockerコンテナを作る
+docker container run ubuntu:latest /bin/echo 'Hello world'
+
+# Dockerコンテナ一覧を見たい場合
+docker ps -a
+
+# Dockerイメージ一覧をみたい場合
+docker images -a
+
+
+P.167
+--attach, -a   
+--cidfile
+--detach, -d
+--interactive, -i
+--tty, -t
+
+
+docker version
+
+docker system info
+
+docker system df
+
+
+# Dockerにnginxをいれる
+docker pull nginx
+
+docker images ls
+docker image ls
+docker images
+
+docker container run --name webserver -d -p 80:80 nginx
+
+docker container ps
+docker ps
+
+docker container stats
+
+docker stop webserver
+
+#docker 
+docker rmi $(docker images -f "dangling=true" -q)
+
+docker rm $(docker ps -f "dangling=true" -q)
+
+for /f "usebackq delims=" %i in (`docker ps -q`) do docker stop %i
+
+
+docker container run -v /d/docker_ex/.:/tmp/var -it ubuntu
+
+#container→tar→image:file/directory
+docker container export
+↓
+docker container import
+
+#image→tar→image:image folder
+docker container save
+↓
+docker container load
+
+
+docker ps -aq --filter ancestor=healthtest3
